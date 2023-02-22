@@ -1,0 +1,463 @@
+/* variabel untuk menyimpan warna yang digunakan sebagai tema */
+:root {
+  --primary: #a0754a;
+  --bg: #010101;
+}
+
+* {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* supaya tidak perlu mengatur lagi dimensi dari elemen */
+  outline: none;
+  border: none;
+  text-decoration: none;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: var(--bg);
+  color: #fff;
+}
+
+/* navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between; /* sejajar secara horizontal */
+  align-items: center; /* sejajar secara vertikal */
+  padding: 1.4rem 5%;
+  background-color: rgba(22, 14, 7, 0.8);
+  border: 2px solid rgba(116, 72, 40, 0.349);
+  border-radius: 1rem;
+  position: fixed;
+  top: 0.5rem;
+  left: 0.5rem;
+  right: 0.5rem;
+  z-index: 9999;
+}
+
+.navbar .navbar-logo {
+  color: var(--primary);
+  font-size: 1.8rem;
+  font-weight: 700;
+  font-style: italic;
+}
+
+#and {
+  color: white;
+  font-size: 2.5rem;
+}
+
+.navbar .navbar-nav a {
+  color: #fff;
+  display: inline-block;
+  font-size: 1.4rem;
+  margin: 0 1rem;
+}
+
+.navbar .navbar-nav a::after {
+  content: "";
+  display: block;
+  padding-bottom: 0.2rem;
+  border-bottom: 0.1rem solid var(--primary);
+  transform: scaleX(0);
+  transition: 0.3s linear;
+}
+
+.navbar .navbar-nav a:hover::after {
+  transform: scaleX(0.3);
+}
+
+/* agar warna font berubah saat diarahkan kursor */
+.navbar .navbar-nav a:hover {
+  color: var(--primary);
+  transition: 0.4s;
+}
+
+.navbar .navbar-extra a {
+  color: white;
+  margin: 0 0.5rem;
+}
+
+.navbar .navbar-extra a:hover {
+  color: var(--primary);
+}
+
+#hamburger-menu {
+  display: none;
+}
+
+/* hero section */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center; /* secara vertikal */
+  background-image: url(foto/lazarescu-alexandra-hFpqG9KU5Gc-unsplash.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  /* karena pada .hero::after position diatur absolute, maka position
+  pada class hero harus relative */
+  position: relative;
+}
+
+.hero::after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 20%;
+  bottom: 0;
+  background: linear-gradient(
+    0deg,
+    rgba(1, 1, 3, 1) 8%,
+    rgba(255, 255, 255, 0) 60%
+  );
+}
+
+.hero .content {
+  padding: 1.4rem 6%;
+  max-width: 100%;
+}
+
+.hero .content h1 {
+  font-size: 6rem;
+  line-height: 100%;
+}
+
+.hero .content h1 span {
+  font-style: italic;
+  color: var(--primary);
+}
+
+.hero .content p {
+  font-size: 1.4rem;
+  padding-top: 1rem;
+  font-weight: 400;
+}
+
+.hero .content .order-now {
+  display: inline-block;
+  margin-top: 1.2rem;
+  font-size: 1.3rem;
+  color: #fff;
+  border-radius: 1rem;
+  box-shadow: 1px 1px 1px rgba(1, 1, 3, 0.5);
+  background-color: var(--primary);
+  padding: 1rem 2rem;
+}
+
+.hero .content .order-now:hover {
+  background-color: #6e2d02;
+}
+
+/* Menu section, contact Section */
+.menu,
+.contact {
+  padding: 10rem 7% 2rem;
+}
+
+.menu h2,
+.contact h2 {
+  margin-bottom: 1rem;
+  text-align: center;
+  font-size: 3rem;
+}
+
+.menu h2 span,
+.contact h2 span {
+  color: var(--primary);
+}
+
+.menu .row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.menu-card {
+  margin-top: 3rem;
+  text-align: center;
+}
+
+.menu .row .menu-card img {
+  width: 150px;
+  height: 150px;
+  border: 7px solid rgb(161, 118, 61);
+  border-radius: 50px;
+}
+
+.menu .row .menu-card .menu-card-title {
+  margin-top: 0.5rem;
+  font-size: 2rem;
+}
+
+.menu .row .menu-card .menu-card-price {
+  font-size: 1.1rem;
+}
+
+/* contact section */
+.contact .row {
+  display: flex;
+  margin-top: 3rem;
+  padding: 1rem 1rem;
+  border-radius: 1.5rem;
+  background-color: rgba(179, 111, 63, 0.25);
+}
+
+.contact .row .map {
+  justify-self: center;
+  border: 0.2rem solid rgb(66, 52, 23);
+  border-radius: 1.5rem;
+  flex: 1 1 45rem;
+  width: 100%;
+  object-fit: cover;
+}
+
+.contact .row form {
+  flex: 1 1 45rem;
+  padding: 5rem 2rem;
+  text-align: center;
+}
+
+.contact .row form .input-group {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2rem;
+  background-color: var(--bg);
+  border: 1px solid #eeeeee;
+  border-radius: 1rem;
+  padding-left: 2rem;
+}
+
+.contact .row form .input-group input {
+  width: 100%;
+  padding: 2rem;
+  font-size: 1.7rem;
+  background: none;
+  color: #ffffff;
+}
+
+.contact .row form .input-group textarea {
+  width: 100%;
+  padding: 2rem;
+  font-size: 1.7rem;
+  background: none;
+  color: #ffffff;
+}
+
+.contact .row form .btn {
+  display: inline-block;
+  cursor: pointer;
+  border-radius: 1rem;
+  margin-top: 3rem;
+  padding: 1rem 3rem;
+  font-size: 1.5rem;
+  color: #ffffff;
+  background-color: var(--primary);
+}
+
+.contact .row form .btn:hover {
+  background-color: #6e2d02;
+}
+
+/* css output box */
+.contact .row .output {
+  width: 100%;
+  height: min-content;
+  margin-top: 4rem;
+  margin-bottom: 2rem;
+  padding: 2rem;
+  background-color: #010101;
+  border: 1px solid white;
+  border-radius: 2rem;
+  font-size: 1.4rem;
+  text-align: center;
+}
+
+/* footer */
+footer {
+  border: 2px solid rgba(116, 72, 40, 0.349);
+  border-radius: 1rem;
+  position: relative;
+  bottom: 0.5rem;
+  left: 0.5rem;
+  right: 0.5rem;
+  margin-top: 1rem;
+  background-color: var(--primary);
+  text-align: center;
+  padding: 2rem 0;
+}
+
+footer .social-media {
+  padding: 1.5rem 0;
+}
+
+footer .social-media a {
+  color: #502511;
+  margin: 0 1rem;
+}
+
+footer .social-media a:hover {
+  color: rgb(255, 255, 255);
+}
+
+footer .links {
+  margin-bottom: 1.2rem;
+}
+
+footer .links a {
+  color: #502511;
+  font-weight: 500;
+  font-size: 1.8rem;
+  margin: 0.7rem 1rem;
+}
+
+footer .links a:hover {
+  color: rgb(255, 255, 255);
+}
+
+footer .copyright {
+  font-size: 1.5rem;
+}
+
+footer .copyright a {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--bg);
+}
+
+footer .copyright a span {
+  color: #502511;
+}
+
+footer .revou p {
+  font-size: 1.5rem;
+  margin-top: 3.5rem;
+}
+
+footer .revou img {
+  margin-top: 0.5rem;
+  width: 50px;
+  height: 50px;
+}
+
+/*  */
+/*  */
+/*  */
+/* media queries */
+/* Desktop */
+@media only screen and (max-width: 1920px) {
+  html {
+    font-size: 100%;
+  }
+}
+
+/* laptop */
+@media only screen and (max-width: 1280px) {
+  html {
+    font-size: 70%;
+  }
+}
+
+/* tablet */
+@media only screen and (max-width: 768px) {
+  html {
+    font-size: 62.5%;
+  }
+  #hamburger-menu {
+    display: inline-block;
+  }
+  .navbar .navbar-nav {
+    margin: 1rem 0.1rem;
+    border-radius: 1rem;
+    position: absolute;
+    top: 100%;
+    right: -100%;
+    background-color: rgba(22, 14, 7, 0.93);
+    border: 2px solid rgba(116, 72, 40, 0.349);
+    width: 25rem;
+    height: min-content;
+    transition: 0.3s;
+  }
+  .navbar .navbar-nav.active {
+    right: 0;
+  }
+  .navbar .navbar-nav a {
+    font-size: 1.5rem;
+    display: block;
+    margin: 2rem;
+    padding: 0.5rem;
+  }
+  .navbar .navbar-nav a::after {
+    transform-origin: 0 0;
+  }
+  .navbar .navbar-nav a:hover::after {
+    transform: scaleX(0.2);
+  }
+
+  .contact .row {
+    flex-wrap: wrap;
+  }
+
+  .contact .row .map {
+    height: 30rem;
+  }
+
+  .contact .row form {
+    padding-top: 0;
+    padding-bottom: 1rem;
+  }
+}
+
+/* mobile */
+@media (max-width: 450px) {
+  html {
+    font-size: 50%;
+  }
+
+  #hamburger-menu {
+    display: inline-block;
+  }
+  .navbar .navbar-nav {
+    margin: 1rem 0.1rem;
+    border-radius: 1rem;
+    position: absolute;
+    top: 100%;
+    right: -100%;
+    background-color: rgba(22, 14, 7, 0.93);
+    border: 2px solid rgba(116, 72, 40, 0.349);
+    width: 17rem;
+    height: min-content;
+    transition: 0.3s;
+  }
+  .navbar .navbar-nav.active {
+    right: 0;
+  }
+  .navbar .navbar-nav a {
+    font-size: 1.5rem;
+    display: block;
+    margin: 2rem;
+    padding: 0.5rem;
+  }
+  .navbar .navbar-nav a::after {
+    transform-origin: 0 0;
+  }
+  .navbar .navbar-nav a:hover::after {
+    transform: scaleX(0.2);
+  }
+}
+
+.contact .row {
+  flex-wrap: wrap;
+}
+
+.contact .row .map {
+  height: 30rem;
+}
+
+.contact .row form {
+  padding-top: 0;
+  padding-bottom: 1rem;
+}
